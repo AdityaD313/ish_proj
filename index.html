@@ -42,9 +42,9 @@
         </div>
           <div class="languages d-none d-md-flex align-items-center">
     <ul style="margin: 0; padding: 0; list-style: none; display: flex; gap: 10px;">
-      <li><a href="#" onclick="translateTo('en'); return false;">English</a></li>
-      <li><a href="#" onclick="translateTo('mr'); return false;">मराठी</a></li>
-    </ul>
+      <a href="#" onclick="translateTo('mr'); return false;">मराठी</a></li>
+    </ul><li><a href="#" onclick="translateTo('en'); return false;">English</a></li>
+      <li>
   </div>
 
 </div>
@@ -914,7 +914,9 @@
 
 
 <!-- Hidden Translate Element -->
+<!-- Required by Google Translate -->
 <div id="google_translate_element" style="display: none;"></div>
+
 
 <script type="text/javascript">
   function googleTranslateElementInit() {
@@ -926,14 +928,22 @@
   }
 
   function translateTo(lang) {
-    const interval = setInterval(function () {
+    const tryTranslate = () => {
       const select = document.querySelector("select.goog-te-combo");
       if (select) {
         select.value = lang;
         select.dispatchEvent(new Event("change"));
-        clearInterval(interval);
+        return true;
       }
-    }, 200);
+      return false;
+    };
+
+    // Try now, or retry every 300ms
+    if (!tryTranslate()) {
+      const interval = setInterval(() => {
+        if (tryTranslate()) clearInterval(interval);
+      }, 300);
+    }
   }
 </script>
 
