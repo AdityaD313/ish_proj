@@ -126,76 +126,121 @@
 
 <!-- Styles -->
 <style>
-  .contact-toggle-btn {
-    position: fixed;
-  bottom: 60px;
-  right: 20px;
-  background: none;
-  border: none;
+  /* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
   padding: 0;
-  cursor: pointer;
-  z-index: 1000;
-  }
+}
 
-  .contact-toggle-btn img {
-    width: 150%;
-    height: 100%;
-    border-radius: 100%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+/* Toggle Button */
+.contact-toggle-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.contact-toggle-btn img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+/* Contact Panel */
+.contact-panel {
+  position: fixed;
+  bottom: 150px;
+  right: 20px;
+  width: 280px;
+  max-width: 90vw;
+  background-color: #002b40;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: none;
+  font-family: sans-serif;
+}
+
+.contact-panel .title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.contact-item i {
+  margin-right: 8px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* Call Now Button */
+.call-now-button {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  background-color: red;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .contact-toggle-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 70px;
+    right: 15px;
   }
 
   .contact-panel {
-    position: fixed;
     bottom: 130px;
-    right: 20px;
-    width: 260px;
-    background-color: #002b40;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    display: none;
+    right: 15px;
+    padding: 12px;
+    font-size: 14px;
   }
 
   .call-now-button {
-    position: fixed;
     bottom: 10px;
-    right: 20px;
-    background-color: red;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    z-index: 1000;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    right: 15px;
+    padding: 10px 14px;
+    font-size: 13px;
   }
+}
 
-  /* Responsive adjustments for smaller screens */
-  @media (max-width: 480px) {
-    .contact-toggle-btn {
-      bottom: 20px;
-      right: 15px;
-      width: 50px;
-      height: 50px;
-    }
-
-    .contact-panel {
-      width: 90%;
-      right: 5%;
-      bottom: 80px;
-      font-size: 14px;
-      padding: 12px;
-    }
-
-    .call-now-button {
-      right: 15px;
-      bottom: 10px;
-      padding: 8px 12px;
-      font-size: 14px;
-    }
-  }
 </style>
 
 <!-- Script -->
