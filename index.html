@@ -130,11 +130,12 @@
     position: fixed;
     bottom: 60px;
     right: 20px;
-    background: none;
+    width: 60px;
+    height: 60px;
     border: none;
-    padding: 0;
+    background: transparent;
     cursor: pointer;
-    z-index: 1000;">
+    z-index: 1001;
   }
 
   .contact-toggle-btn img {
@@ -158,32 +159,44 @@
     display: none;
   }
 
-  .contact-panel .title {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-size: 16px;
-  }
-
-  .contact-item {
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-
-  .contact-item i {
-    margin-right: 8px;
-  }
-
-  .contact-item a {
+  .call-now-button {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    background-color: red;
     color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
     text-decoration: none;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
   }
 
-  .contact-item a:hover {
-    text-decoration: underline;
-  }
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 480px) {
+    .contact-toggle-btn {
+      bottom: 20px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
+    }
 
-  
+    .contact-panel {
+      width: 90%;
+      right: 5%;
+      bottom: 80px;
+      font-size: 14px;
+      padding: 12px;
+    }
+
+    .call-now-button {
+      right: 15px;
+      bottom: 10px;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }
 </style>
 
 <!-- Script -->
